@@ -7,5 +7,7 @@ arena-sim-to-real is based on [arena-rosnav](https://github.com/ignc-research/ar
 
  <img src="https://github.com/ignc-research/arena-sim-to-real/blob/main/img/normal.gif">  
 In addition to the normal task of navigating in a complex environment, auxiliary human guidance/following tasks have been introduced.
+
+
 <img src="https://github.com/ignc-research/arena-sim-to-real/blob/644cd5c85fcf98a5cac00e661097f0c008118a29/img/guiding.gif"> <img  src="https://github.com/ignc-research/arena-sim-to-real/blob/6db42521ed0a624e5c6b3df9297cf22c3ccb69ec/img/following_human.gif"> 
 
