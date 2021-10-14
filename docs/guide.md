@@ -93,8 +93,8 @@ plugins=(git zsh-autosuggestions)
 source $HOME/.zshrc
 ```
 
-## Installation of Arena-Rosnav
-Please install Arena-Rosnav according to the step-by-step instruction in [Installation.md](https://github.com/ignc-research/arena-rosnav/blob/local_planner_subgoalmode/docs/Installation.md).
+## Installation of arena-sim-to-real
+Please install arena-sim-to-real according to the step-by-step instruction in [Installation.md](https://github.com/ignc-research/arena-sim-to-real/docs/Installation.md).
 
 # Usage
 ## Common error handling
@@ -105,12 +105,12 @@ workon rosnav
 ```
 - Update git repository
 ```
-cd $HOME/catkin_ws/src/arena-rosnav
+cd $HOME/catkin_ws/src/arena-sim-to-real
 git pull
 ```
 - Update ROS workspace
 ```
-cd $HOME/catkin_ws/src/arena-rosnav
+cd $HOME/catkin_ws/src/arena-sim-to-real
 rosws update
 ```
 - Build your workspace
@@ -122,13 +122,13 @@ catkin_make -DCMAKE_BUILD_TYPE=Release -DPYTHON_EXECUTABLE=/usr/bin/python3
 Another source of error could be your ```PYTHONPATH```. Please check it with ```echo $PYTHONPATH```. The output should look like this:
 ```
 /home/user/catkin_ws/devel/lib/python3/dist-packages:
-/home/user/catkin_ws/src/arena-rosnav:
+/home/user/catkin_ws/src/arena-sim-to-real:
 /home/user/geometry2_ws/devel/lib/python3/dist-packages:
 /opt/ros/melodic/lib/python2.7/dist-packages
 ```
 ```/opt/ros/melodic/lib/python2.7/dist-packages``` should be listed last. The order of the first 3 paths is not important.
 
-If not, please follow the instructions [Set python path in .zshrc (or .bashrc if you use that)](https://github.com/ignc-research/arena-rosnav/blob/local_planner_subgoalmode/docs/Installation.md#13-install-arena-rosnav-repo) in Installation.md.
+If not, please follow the instructions [Set python path in .zshrc (or .bashrc if you use that)](https://github.com/ignc-research/arena-sim-to-real/blob//docs/Installation.md#13-install-arena-rosnav-repo) in Installation.md.
 
 ## Start a simulation
 The most basic simulation can be started by using the following command. Please make sure you are working in your virtual environment by running ```workon rosnav``` beforehand.
@@ -155,11 +155,11 @@ The RVIZ will be shown as the following image.
 ![image](https://user-images.githubusercontent.com/79201799/117291472-58d6b100-ae6f-11eb-8c63-853db1e83fa7.png)
 
 ## Training the agent
-Please refer to [DRL-Training.md](https://github.com/ignc-research/arena-rosnav/blob/local_planner_subgoalmode/docs/DRL-Training.md) for detailed explanations about agent, policy and training setups.
+Please refer to [DRL-Training.md](https://github.com/ignc-research/arena-sim-to-real/docs/DRL-Training.md) for detailed explanations about agent, policy and training setups.
 
 During training the agent will at first behave randomly and over time learns to navigate to the goal and (if specified) avoid obstacles. It's not necessary to set any goals. The script will run by itself.
 
-The Quickstart training from [DRL-Training.md](https://github.com/ignc-research/arena-rosnav/blob/local_planner_subgoalmode/docs/DRL-Training.md) will look like this:
+The Quickstart training from [DRL-Training.md](https://github.com/ignc-research/arena-sim-to-real/docs/DRL-Training.md) will look like this:
 
 ![image](https://user-images.githubusercontent.com/79201799/117296772-be2da080-ae75-11eb-8278-b123093b754d.png)
 
@@ -177,26 +177,11 @@ cd $HOME/catkin_ws/src/forks/stable-baselines3
 pip install -e.
 ```
 ```
-cd $HOME/catkin_ws/src/arena-rosnav
+cd $HOME/catkin_ws/src/arena-sim-to-real
 rosws update
 ```
 ```
 cd $HOME/catkin_ws
 catkin_make -DCMAKE_BUILD_TYPE=Release -DPYTHON_EXECUTABLE=/usr/bin/python3
 ```
-
-## Evaluation of agent performance
-After training agents, their performance can be evaluated following [Evaluation.md](https://github.com/ignc-research/navsafe-arena/tree/main/docs/Evaluations.md).
-
-![image](https://user-images.githubusercontent.com/79201799/117297905-08635180-ae77-11eb-846c-9b445d4df51a.png)
-
-Note: The evaluation results will be recorded in .rosbag files in the directory in which the rosbag command was run.
-
-At the same time a csv file will be saved in the folder of [deployment](https://github.com/ignc-research/navsafe-arena/tree/main/arena_navigation/arena_local_planner/learning_based/arena_local_planner_drl/scrpits/deployment).
-
-The first one is used as quantitative evaluation, while the second one is used as qualitative evaluation.
-
-
-## Plotting of the agent performance
-The performance of the agent can be visualized by the scripts [plotforcomparison.py](https://github.com/ignc-research/arena-rosnav/blob/local_planner_subgoalmode/arena_navigation/arena_local_planner/evaluation/scripts/semantic_plots/plotforcomparison.py) and [evaluationTrajectory.py](https://github.com/ignc-research/arena-rosnav/blob/local_planner_subgoalmode/arena_navigation/arena_local_planner/evaluation/scripts/quantitative/eval_human_traj_robot/Evaluation_traj/evaluationTrajectory.py)
 
