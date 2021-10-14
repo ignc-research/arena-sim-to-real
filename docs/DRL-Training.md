@@ -18,14 +18,15 @@ As a fundament for our Deep Reinforcement Learning approaches [StableBaselines3]
 * In one terminnal, start simulation
 
 ```bash
-roslaunch arena_bringup start_training.launch num_envs:=1
+roslaunch arena_bringup start_training.launch num_envs:=1 show_pedsim_labels:=true  republish_flatland_markers:=true 
+
 ```
 * In another terminal
 
 ```bash
 workon rosnav
 roscd arena_local_planner_drl
-python scripts/training/train_agent.py --agent MLP_ARENA2D
+python scripts/training/train_agent.py --agent MLP_HUMAN --config rule_03     --n_envs 1
 ```
 
 
