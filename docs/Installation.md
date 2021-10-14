@@ -108,14 +108,14 @@ pip install pyyaml catkin_pkg netifaces pathlib
 pip install stable-baselines3
 ```
 
-#### 1.3. Install arena-rosnav repo
+#### 1.3. Install arena-sim-to-real repo
 * Create a catkin_ws and clone this repo into your catkin_ws 
 ````
 cd $HOME
 mkdir -p catkin_ws/src && cd catkin_ws/src
-git clone https://github.com/ignc-research/arena-rosnav
+git clone https://github.com/ignc-research/arena-sim-to-real
 
-cd arena-rosnav && rosws update
+cd arena-sim-to-real && rosws update
 source $HOME/.zshrc
 cd ../.. 
 catkin_make -DCMAKE_BUILD_TYPE=Release -DPYTHON_EXECUTABLE=/usr/bin/python3
@@ -128,7 +128,7 @@ Note: if you use bash replace zsh with bash in the commands
 The official ros only support tf2 with python2. In order to make the *tf* work in python3, its necessary to compile it with python3. We provided a script to automately install this
 and do some additional configurations for the convenience . You can simply run it with 
 ```
-cd $HOME/catkin_ws/src/arena-rosnav
+cd $HOME/catkin_ws/src/arena-sim-to-real
 ./geometry2_install.sh
 ```
 
@@ -145,7 +145,7 @@ nano ~/.zshrc
 Add these lines below "source/opt/ros/melodic/setup.zsh"
 ```
 source /$HOME/catkin_ws/devel/setup.zsh
-export PYTHONPATH=$HOME/catkin_ws/src/arena-rosnav:${PYTHONPATH}
+export PYTHONPATH=$HOME/catkin_ws/src/arena-sim-to-real:${PYTHONPATH}
 export PYTHONPATH=$HOME/geometry2_ws/devel/lib/python3/dist-packages:${PYTHONPATH}
 ```
 Add this line above "source/opt/ros/melodic/setup.zsh"
@@ -156,7 +156,7 @@ export PYTHONPATH=""
 * Install CADRL dependencies (venv always activated!) 
 ```
 workon rosnav
-cd $HOME/catkin_ws/src/arena-rosnav/arena_navigation/arena_local_planner/model_based/cadrl_ros
+cd $HOME/catkin_ws/src/arena-sim-to-real/arena_navigation/arena_local_planner/model_based/cadrl_ros
 pip install -r requirements_cadrl.txt
 ```
 If you encounter errors, e.g. specific versions not found, please manually install the packages with an available version.
@@ -176,7 +176,7 @@ catkin_make -DCMAKE_BUILD_TYPE=Release -DPYTHON_EXECUTABLE=/usr/bin/python3
 ## Update after developing flatland code
 After changes inside the forks/flatland folder you should do the following steps to fetch the latest version:
 ```
-cd $HOME/catkin_ws/src/arena-rosnav
+cd $HOME/catkin_ws/src/arena-sim-to-real
 rosws update
 ```
 pull latest ignc-flatland version 
@@ -186,7 +186,7 @@ git pull
 ```
 # Error Handling 
 if you encounter the error "world path not given", it is probably because you havent updated the forks repository or working on an old branch.
-In that case go to the arena-rosnav folder and do
+In that case go to the arena-sim-to-real folder and do
 ```
 rosws update
 ```
