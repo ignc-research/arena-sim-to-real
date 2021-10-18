@@ -13,3 +13,44 @@ In addition to the normal task of navigating in a complex environment, auxiliary
 |                            *Guiding Human*                             |                            *Following Human*                             |
 
 
+
+# Start Guide
+We recommend starting with the [start guide](https://github.com/ignc-research/arena-sim-to-real/tree/main/docs/guide.md) which contains all information you need to know to start off with this project including installation on **Linux and Windows** as well as tutorials to start with. 
+
+
+## 1. Installation
+Please refer to [Installation.md](docs/Installation.md) for detailed explanations about the installation process.
+
+## 1.1. Docker
+We provide a Docker file to run our code on other operating systems. Please refer to [Docker.md](docs/Docker.md) for more information.
+
+## 2. Usage
+
+### DRL Training
+
+Please refer to [DRL-Training.md](docs/DRL-Training.md) for detailed explanations about agent, policy and training setups.
+
+**DRL agents** are located in the [agents folder](https://github.com/ignc-research/arena-sim.to-real/tree/main/arena_navigation/arena_local_planner/learning_based/arena_local_planner_drl/agents).
+
+
+
+##### Quick Start and Supplementary Notes
+
+* In one terminnal, start simulation
+
+```bash
+workon the_name_of_your_virtual_env
+roslaunch arena_bringup start_training.launch num_envs:=1 show_pedsim_labels:=true  republish_flatland_markers:=true 
+
+```
+* In another terminal, load the pretrained agent
+
+```bash
+workon the_name_of_your_virtual_env
+
+roscd arena_local_planner_drl  &&  python scripts/training/train_agent.py --load name_of_pretrained_agent  --config rule_03     --n_envs 1
+
+...
+
+
+
