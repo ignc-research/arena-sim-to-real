@@ -21,16 +21,13 @@ We recommend starting with the [start guide](https://github.com/ignc-research/ar
 ## 1. Installation
 Please refer to [Installation.md](docs/Installation.md) for detailed explanations about the installation process.
 
-## 1.1. Docker
-We provide a Docker file to run our code on other operating systems. Please refer to [Docker.md](docs/Docker.md) for more information.
-
 ## 2. Usage
 
 ### DRL Training
 
 Please refer to [DRL-Training.md](docs/DRL-Training.md) for detailed explanations about agent, policy and training setups.
 
-**DRL agents** are located in the [agents folder](https://github.com/ignc-research/arena-sim.to-real/tree/main/arena_navigation/arena_local_planner/learning_based/arena_local_planner_drl/agents).
+**DRL agents** are located in the [agents folder](https://github.com/ignc-research/arena-sim-to-real/tree/main/arena_navigation/arena_local_planner/learning_based/arena_local_planner_drl/agents).
 
 
 
